@@ -3,7 +3,7 @@ const colors = require('mongoose')
 const dotenv = require('dotenv').config()
 const {errorHandler} = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db')
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3003
 
 connectDB()
 
