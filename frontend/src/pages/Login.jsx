@@ -17,7 +17,7 @@ function Login() {
 
   })
 
-  const{name,email,password,password2} = formData
+  const{email,password} = formData
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
