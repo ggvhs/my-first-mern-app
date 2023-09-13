@@ -47,7 +47,6 @@ export const getGoals = createAsyncThunk(
   }
 )
 
-//update goal
 export const updateGoal = createAsyncThunk(
   'goals/update',
   async ({ goalId, goalData }, thunkAPI) => {
@@ -120,24 +119,7 @@ export const goalSlice = createSlice({
         state.isError = true
         state.message = action.payload
       })
-      .addCase(updateGoal.pending, (state) => {
-        state.isLoading = true
-      })
-      .addCase(updateGoal.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.isSuccess = true
-        // Assuming that the updated goal object is returned from the API
-        // You can update the goals array with the updated goal here
-        state.goals = state.goals.map((goal) =>
-          goal._id === action.payload._id ? action.payload : goal
-        )
-      })
-      .addCase(updateGoal.rejected, (state, action) => {
-        state.isLoading = false
-        state.isError = true
-        state.message = action.payload
-      })
-      .addCase(deleteGoal.pending, (state) => {
+    .addCase(deleteGoal.pending, (state) => {
         state.isLoading = true
       })
       .addCase(deleteGoal.fulfilled, (state, action) => {
